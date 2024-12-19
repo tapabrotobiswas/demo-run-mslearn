@@ -3,30 +3,6 @@ Metadata:
   AWSToolsMetrics:
     IaC_Generator: "arn:aws:cloudformation:ap-southeast-1:343218203122:generatedTemplate/74499f4b-dec3-453c-89a5-fd0108a89138"
 Resources:
-  CloudFrontCachePolicy001c6db51aa33f469a8245dae26771f53000QcoTf:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::CachePolicy"
-    DeletionPolicy: "Retain"
-    Properties:
-      CachePolicyConfig:
-        Comment: "Amplify cache policy for image optimization"
-        MinTTL: 0
-        MaxTTL: 3.1536E7
-        ParametersInCacheKeyAndForwardedToOrigin:
-          QueryStringsConfig:
-            QueryStringBehavior: "all"
-          EnableAcceptEncodingBrotli: true
-          HeadersConfig:
-            HeaderBehavior: "whitelist"
-            Headers:
-            - "Authorization"
-            - "Accept"
-            - "Host"
-          CookiesConfig:
-            CookieBehavior: "none"
-          EnableAcceptEncodingGzip: true
-        DefaultTTL: 0
-        Name: "Managed-Amplify-ImageOptimization"
   IAMManagedPolicy00policyPublishLogtoCloudWatch00kuvjV:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::IAM::ManagedPolicy"
@@ -1032,26 +1008,6 @@ Resources:
         IpProtocol: "-1"
         FromPort: -1
         ToPort: -1
-  CloudFrontCachePolicy00658327eaf89d4faba63d7e88639e58f600COc7C:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::CachePolicy"
-    DeletionPolicy: "Retain"
-    Properties:
-      CachePolicyConfig:
-        Comment: "Policy with caching enabled. Supports Gzip and Brotli compression."
-        MinTTL: 1
-        MaxTTL: 3.1536E7
-        ParametersInCacheKeyAndForwardedToOrigin:
-          QueryStringsConfig:
-            QueryStringBehavior: "none"
-          EnableAcceptEncodingBrotli: true
-          HeadersConfig:
-            HeaderBehavior: "none"
-          CookiesConfig:
-            CookieBehavior: "none"
-          EnableAcceptEncodingGzip: true
-        DefaultTTL: 86400
-        Name: "Managed-CachingOptimized"
   ConfigConfigRule00securityhubelbtlshttpslistenersonlyf9091dec00tKV4k:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::Config::ConfigRule"
@@ -1792,20 +1748,6 @@ Resources:
       RestApiId:
         Ref: "ApiGatewayRestApi005nwb46kira00y5IhC"
       Description: "Created by AWS Lambda"
-  CloudFrontOriginRequestPolicy00216adef65c7f47e4b9895492eafa07d300yfFaF:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::OriginRequestPolicy"
-    DeletionPolicy: "Retain"
-    Properties:
-      OriginRequestPolicyConfig:
-        QueryStringsConfig:
-          QueryStringBehavior: "all"
-        Comment: "Policy to forward all parameters in viewer requests"
-        HeadersConfig:
-          HeaderBehavior: "allViewer"
-        CookiesConfig:
-          CookieBehavior: "all"
-        Name: "Managed-AllViewer"
   EC2SecurityGroup00sg0a6c63d92a738a24c00vYP82:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::EC2::SecurityGroup"
@@ -2143,24 +2085,6 @@ Resources:
       SourceDestCheck: true
       InterfaceType: "interface"
       Tags: []
-  CloudFrontOriginRequestPolicy0088a5eaf42fd44709b370b4c650ea3fcf00Ph1aa:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::OriginRequestPolicy"
-    DeletionPolicy: "Retain"
-    Properties:
-      OriginRequestPolicyConfig:
-        QueryStringsConfig:
-          QueryStringBehavior: "none"
-        Comment: "Policy for S3 origin with CORS"
-        HeadersConfig:
-          HeaderBehavior: "whitelist"
-          Headers:
-          - "origin"
-          - "access-control-request-headers"
-          - "access-control-request-method"
-        CookiesConfig:
-          CookieBehavior: "none"
-        Name: "Managed-CORS-S3Origin"
   EC2Instance00i0e38931234673f67800yTOLG:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::EC2::Instance"
@@ -2257,26 +2181,6 @@ Resources:
         SourceIdentifier: "DMS_ENDPOINT_SSL_CONFIGURED"
         Owner: "AWS"
       InputParameters: {}
-  CloudFrontCachePolicy00b2884449e4de46a7ac3670bc7f1ddd6d00AgjNB:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::CachePolicy"
-    DeletionPolicy: "Retain"
-    Properties:
-      CachePolicyConfig:
-        Comment: "Default policy when compression is disabled"
-        MinTTL: 1
-        MaxTTL: 3.1536E7
-        ParametersInCacheKeyAndForwardedToOrigin:
-          QueryStringsConfig:
-            QueryStringBehavior: "none"
-          EnableAcceptEncodingBrotli: false
-          HeadersConfig:
-            HeaderBehavior: "none"
-          CookiesConfig:
-            CookieBehavior: "none"
-          EnableAcceptEncodingGzip: false
-        DefaultTTL: 86400
-        Name: "Managed-CachingOptimizedForUncompressedObjects"
   ConfigConfigRule00securityhubdmsredistlsenabled06c65ffe00nLduX:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::Config::ConfigRule"
@@ -2446,33 +2350,6 @@ Resources:
       SourceDestCheck: true
       InterfaceType: "interface"
       Tags: []
-  CloudFrontCachePolicy000862726205a94f769dedb50ca2e3a84f00Qz7tg:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::CachePolicy"
-    DeletionPolicy: "Retain"
-    Properties:
-      CachePolicyConfig:
-        Comment: "Policy for Elemental MediaPackage Origin"
-        MinTTL: 0
-        MaxTTL: 3.1536E7
-        ParametersInCacheKeyAndForwardedToOrigin:
-          QueryStringsConfig:
-            QueryStrings:
-            - "aws.manifestfilter"
-            - "start"
-            - "end"
-            - "m"
-            QueryStringBehavior: "whitelist"
-          EnableAcceptEncodingBrotli: false
-          HeadersConfig:
-            HeaderBehavior: "whitelist"
-            Headers:
-            - "origin"
-          CookiesConfig:
-            CookieBehavior: "none"
-          EnableAcceptEncodingGzip: true
-        DefaultTTL: 86400
-        Name: "Managed-Elemental-MediaPackage"
   ConfigConfigRule00securityhubrdsauroramysqlauditloggingenabledc200fdfb00iiJ0X:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::Config::ConfigRule"
@@ -2532,30 +2409,6 @@ Resources:
         SourceIdentifier: "RDS_AURORA_POSTGRESQL_LOGS_TO_CLOUDWATCH"
         Owner: "AWS"
       InputParameters: {}
-  CloudFrontCachePolicy002e54312d136d493c8eb9b001f22f67d200CU3SV:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::CachePolicy"
-    DeletionPolicy: "Retain"
-    Properties:
-      CachePolicyConfig:
-        Comment: "Policy for Amplify Origin"
-        MinTTL: 2
-        MaxTTL: 600
-        ParametersInCacheKeyAndForwardedToOrigin:
-          QueryStringsConfig:
-            QueryStringBehavior: "all"
-          EnableAcceptEncodingBrotli: true
-          HeadersConfig:
-            HeaderBehavior: "whitelist"
-            Headers:
-            - "Authorization"
-            - "CloudFront-Viewer-Country"
-            - "Host"
-          CookiesConfig:
-            CookieBehavior: "all"
-          EnableAcceptEncodingGzip: true
-        DefaultTTL: 2
-        Name: "Managed-Amplify"
   EC2Instance00i0332276dc3494333e00eGMQN:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::EC2::Instance"
@@ -4260,23 +4113,6 @@ Resources:
         SourceIdentifier: "API_GW_ASSOCIATED_WITH_WAF"
         Owner: "AWS"
       InputParameters: {}
-  CloudFrontOriginRequestPolicy00acba4595bd2849b8b9fe13317c0390fa00pdKv6:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::OriginRequestPolicy"
-    DeletionPolicy: "Retain"
-    Properties:
-      OriginRequestPolicyConfig:
-        QueryStringsConfig:
-          QueryStringBehavior: "none"
-        Comment: "Policy to forward user-agent and referer headers to origin"
-        HeadersConfig:
-          HeaderBehavior: "whitelist"
-          Headers:
-          - "referer"
-          - "user-agent"
-        CookiesConfig:
-          CookieBehavior: "none"
-        Name: "Managed-UserAgentRefererHeaders"
   ConfigConfigRule00securityhubaccesskeysrotated0126792100u2jVg:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::Config::ConfigRule"
@@ -4577,31 +4413,6 @@ Resources:
         Owner: "CUSTOM_LAMBDA"
       InputParameters:
         version: "1.1"
-  CloudFrontCachePolicy004d1d2f1d3a7149ad9e087ea5d843a55600PODnQ:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::CachePolicy"
-    DeletionPolicy: "Retain"
-    Properties:
-      CachePolicyConfig:
-        Comment: "Default Amplify cache policy"
-        MinTTL: 0
-        MaxTTL: 3.1536E7
-        ParametersInCacheKeyAndForwardedToOrigin:
-          QueryStringsConfig:
-            QueryStringBehavior: "all"
-          EnableAcceptEncodingBrotli: true
-          HeadersConfig:
-            HeaderBehavior: "whitelist"
-            Headers:
-            - "Authorization"
-            - "Accept"
-            - "CloudFront-Viewer-Country"
-            - "Host"
-          CookiesConfig:
-            CookieBehavior: "all"
-          EnableAcceptEncodingGzip: true
-        DefaultTTL: 0
-        Name: "Managed-Amplify-Default"
   EC2Volume00vol0c5c3a52ca610e45500Qzcda:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::EC2::Volume"
@@ -5196,23 +5007,6 @@ Resources:
         SourceIdentifier: "DOCDB_CLUSTER_SNAPSHOT_PUBLIC_PROHIBITED"
         Owner: "AWS"
       InputParameters: {}
-  CloudFrontOriginRequestPolicy00b689b0a853d040abbaf268738e2966ac00P4n2v:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::OriginRequestPolicy"
-    DeletionPolicy: "Retain"
-    Properties:
-      OriginRequestPolicyConfig:
-        QueryStringsConfig:
-          QueryStringBehavior: "all"
-        Comment: "Policy to forward all parameters in viewer requests except for the\
-          \ Host header"
-        HeadersConfig:
-          HeaderBehavior: "allExcept"
-          Headers:
-          - "host"
-        CookiesConfig:
-          CookieBehavior: "all"
-        Name: "Managed-AllViewerExceptHostHeader"
   ConfigConfigRule00securityhubvpcendpointenabledawssagemakerrgnntbkef3a6be800uGzqZ:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::Config::ConfigRule"
@@ -5577,33 +5371,6 @@ Resources:
         SourceIdentifier: "KINESIS_STREAM_ENCRYPTED"
         Owner: "AWS"
       InputParameters: {}
-  CloudFrontCachePolicy004cc15a8ad71548a482b8cc0b614638fe00s3YNg:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::CachePolicy"
-    DeletionPolicy: "Retain"
-    Properties:
-      CachePolicyConfig:
-        Comment: "Policy for origins that return Cache-Control headers and serve different\
-          \ content based on values present in the query string."
-        MinTTL: 0
-        MaxTTL: 3.1536E7
-        ParametersInCacheKeyAndForwardedToOrigin:
-          QueryStringsConfig:
-            QueryStringBehavior: "all"
-          EnableAcceptEncodingBrotli: true
-          HeadersConfig:
-            HeaderBehavior: "whitelist"
-            Headers:
-            - "x-method-override"
-            - "origin"
-            - "host"
-            - "x-http-method"
-            - "x-http-method-override"
-          CookiesConfig:
-            CookieBehavior: "all"
-          EnableAcceptEncodingGzip: true
-        DefaultTTL: 0
-        Name: "UseOriginCacheControlHeaders-QueryStrings"
   ConfigConfigRule00securityhubapigwsslenabled966550db00Rp1Sv:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::Config::ConfigRule"
@@ -6434,30 +6201,7 @@ Resources:
       PublicKeyMaterial: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCebU58c67AuhFAz+2YWUicjNm2BS5Wt2sWbj8Go8qx5sjwS4mkj5e7Ps/t3byb+U49hNWe7BW5c3SphhjkN5AX9ra+2F7lG22yqJwi2cvz7DwOArar2nDcYY61TfYGqZ/a+vUkt3RDCINY88Ino6BtYxpvQvcEKGizjENJdWUM8AgOPvws3F61TPPKVbsRYcquJ7vABocI4QRQyyByuY7RvdqP7XoMdLJ0b0sSDaVkdR3lMMIhrtWZQVZZBYrOaCZdDKgsJHV3BWUltMgjlullJc7iaJ4Rx2Efh+dyDO+j/dnN0dt1lyRykeuRv4LFuBqya0WvLaBqRr8uqIKEQ8TP\
         \ nabil-to-ec2pilot\n"
       Tags: []
-  CloudFrontCachePolicy007e5fad67ee984ad0b05a394999eefc1a00xXv8p:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::CachePolicy"
-    DeletionPolicy: "Retain"
-    Properties:
-      CachePolicyConfig:
-        Comment: "Amplify cache policy for static content"
-        MinTTL: 0
-        MaxTTL: 3.1536E7
-        ParametersInCacheKeyAndForwardedToOrigin:
-          QueryStringsConfig:
-            QueryStringBehavior: "none"
-          EnableAcceptEncodingBrotli: true
-          HeadersConfig:
-            HeaderBehavior: "whitelist"
-            Headers:
-            - "Authorization"
-            - "Host"
-          CookiesConfig:
-            CookieBehavior: "none"
-          EnableAcceptEncodingGzip: true
-        DefaultTTL: 0
-        Name: "Managed-Amplify-StaticContent"
-  EC2VPCDHCPOptionsAssociation00vpc02790342fee4ebf9f00XufNl:
+    EC2VPCDHCPOptionsAssociation00vpc02790342fee4ebf9f00XufNl:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::EC2::VPCDHCPOptionsAssociation"
     DeletionPolicy: "Retain"
@@ -6668,41 +6412,6 @@ Resources:
         SourceIdentifier: "ELASTICACHE_SUBNET_GROUP_CHECK"
         Owner: "AWS"
       InputParameters: {}
-  CloudFrontOriginRequestPolicy00775133bc15f249f9abeaafb2e0bf67d200Ez21x:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::OriginRequestPolicy"
-    DeletionPolicy: "Retain"
-    Properties:
-      OriginRequestPolicyConfig:
-        QueryStringsConfig:
-          QueryStringBehavior: "all"
-        Comment: "Policy for Elemental MediaTailor Origin"
-        HeadersConfig:
-          HeaderBehavior: "whitelist"
-          Headers:
-          - "origin"
-          - "access-control-request-headers"
-          - "x-forwarded-for"
-          - "access-control-request-method"
-          - "user-agent"
-        CookiesConfig:
-          CookieBehavior: "none"
-        Name: "Managed-Elemental-MediaTailor-PersonalizedManifests"
-  AthenaWorkGroup00primary00hnHBq:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::Athena::WorkGroup"
-    DeletionPolicy: "Retain"
-    Properties:
-      WorkGroupConfiguration:
-        RequesterPaysEnabled: false
-        EnforceWorkGroupConfiguration: false
-        EngineVersion:
-          SelectedEngineVersion: "AUTO"
-        PublishCloudWatchMetricsEnabled: false
-        ResultConfiguration: {}
-      State: "ENABLED"
-      Tags: []
-      Name: "primary"
   ConfigConfigRule00securityhubrdsnodefaultportsa11914fa00s9UgK:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::Config::ConfigRule"
@@ -7217,22 +6926,6 @@ Resources:
         Owner: "AWS"
       InputParameters:
         serviceNames: "sts"
-  CloudFrontOriginRequestPolicy0059781a5b390341f3afcbaf62929ccde100qzqvN:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::OriginRequestPolicy"
-    DeletionPolicy: "Retain"
-    Properties:
-      OriginRequestPolicyConfig:
-        QueryStringsConfig:
-          QueryStringBehavior: "none"
-        Comment: "Policy for custom origin with CORS"
-        HeadersConfig:
-          HeaderBehavior: "whitelist"
-          Headers:
-          - "origin"
-        CookiesConfig:
-          CookieBehavior: "none"
-        Name: "Managed-CORS-CustomOrigin"
   ConfigConfigRule00securityhubs3bucketmfadeleteenabled2ce37c59004kODK:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::Config::ConfigRule"
@@ -7791,31 +7484,6 @@ Resources:
         SourceIdentifier: "EC2_MANAGEDINSTANCE_ASSOCIATION_COMPLIANCE_STATUS_CHECK"
         Owner: "AWS"
       InputParameters: {}
-  CloudFrontCachePolicy00a6bad94636c34c33aa98362c74a7fb1300jUZg3:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::CachePolicy"
-    DeletionPolicy: "Retain"
-    Properties:
-      CachePolicyConfig:
-        Comment: "Default Amplify cache policy without cookies"
-        MinTTL: 0
-        MaxTTL: 3.1536E7
-        ParametersInCacheKeyAndForwardedToOrigin:
-          QueryStringsConfig:
-            QueryStringBehavior: "all"
-          EnableAcceptEncodingBrotli: true
-          HeadersConfig:
-            HeaderBehavior: "whitelist"
-            Headers:
-            - "Authorization"
-            - "Accept"
-            - "CloudFront-Viewer-Country"
-            - "Host"
-          CookiesConfig:
-            CookieBehavior: "none"
-          EnableAcceptEncodingGzip: true
-        DefaultTTL: 0
-        Name: "Managed-Amplify-DefaultNoCookies"
   ConfigConfigRule00securityhubdynamodbautoscalingenablede66371dd00pjMQC:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::Config::ConfigRule"
@@ -7926,240 +7594,6 @@ Resources:
         SourceIdentifier: "RDS_INSTANCE_IAM_AUTHENTICATION_ENABLED"
         Owner: "AWS"
       InputParameters: {}
-  CloudFrontDistribution00EBGIPRQKYPBKB00mPUMc:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::Distribution"
-    DeletionPolicy: "Retain"
-    Properties:
-      DistributionConfig:
-        Logging:
-          IncludeCookies: false
-          Bucket: ""
-          Prefix: ""
-        Comment: ""
-        DefaultRootObject: ""
-        Origins:
-        - ConnectionTimeout: 10
-          OriginAccessControlId: ""
-          ConnectionAttempts: 3
-          OriginCustomHeaders: []
-          DomainName: "genai-pilot-external-alb-1249351589.ap-southeast-1.elb.amazonaws.com"
-          OriginShield:
-            Enabled: false
-          OriginPath: ""
-          Id: "genAIPilot"
-          CustomOriginConfig:
-            OriginKeepaliveTimeout: 5
-            OriginReadTimeout: 30
-            OriginSSLProtocols:
-            - "SSLv3"
-            - "TLSv1"
-            - "TLSv1.1"
-            - "TLSv1.2"
-            HTTPSPort: 443
-            HTTPPort: 80
-            OriginProtocolPolicy: "http-only"
-        ViewerCertificate:
-          MinimumProtocolVersion: "TLSv1"
-          SslSupportMethod: "vip"
-          CloudFrontDefaultCertificate: true
-        PriceClass: "PriceClass_200"
-        DefaultCacheBehavior:
-          Compress: true
-          FunctionAssociations: []
-          LambdaFunctionAssociations: []
-          TargetOriginId: "genAIPilot"
-          ViewerProtocolPolicy: "allow-all"
-          GrpcConfig:
-            Enabled: false
-          TrustedSigners: []
-          FieldLevelEncryptionId: ""
-          TrustedKeyGroups: []
-          AllowedMethods:
-          - "HEAD"
-          - "DELETE"
-          - "POST"
-          - "GET"
-          - "OPTIONS"
-          - "PUT"
-          - "PATCH"
-          CachedMethods:
-          - "HEAD"
-          - "GET"
-          SmoothStreaming: false
-          OriginRequestPolicyId:
-            Ref: "CloudFrontOriginRequestPolicy00216adef65c7f47e4b9895492eafa07d300yfFaF"
-          CachePolicyId:
-            Ref: "CloudFrontCachePolicy0083da9c7e98b44e11a16804f0df8e2c6500I5yDG"
-        Staging: false
-        CustomErrorResponses: []
-        ContinuousDeploymentPolicyId: ""
-        OriginGroups:
-          Quantity: 0
-          Items: []
-        Enabled: true
-        Aliases: []
-        IPV6Enabled: false
-        WebACLId: "arn:aws:wafv2:us-east-1:343218203122:global/webacl/GenAIPilot/e19c3041-d9f9-4c39-8982-6526a358704e"
-        HttpVersion: "http2"
-        Restrictions:
-          GeoRestriction:
-            Locations:
-            - "MY"
-            - "SG"
-            RestrictionType: "whitelist"
-        CacheBehaviors:
-        - Compress: false
-          FunctionAssociations: []
-          LambdaFunctionAssociations: []
-          TargetOriginId: "genAIPilot"
-          ViewerProtocolPolicy: "allow-all"
-          GrpcConfig:
-            Enabled: false
-          TrustedSigners: []
-          FieldLevelEncryptionId: ""
-          TrustedKeyGroups: []
-          AllowedMethods:
-          - "HEAD"
-          - "GET"
-          PathPattern: "/*.js"
-          CachedMethods:
-          - "HEAD"
-          - "GET"
-          SmoothStreaming: false
-          OriginRequestPolicyId:
-            Ref: "CloudFrontOriginRequestPolicy00216adef65c7f47e4b9895492eafa07d300yfFaF"
-          CachePolicyId:
-            Ref: "CloudFrontCachePolicy00658327eaf89d4faba63d7e88639e58f600COc7C"
-        - Compress: false
-          FunctionAssociations: []
-          LambdaFunctionAssociations: []
-          TargetOriginId: "genAIPilot"
-          ViewerProtocolPolicy: "allow-all"
-          GrpcConfig:
-            Enabled: false
-          TrustedSigners: []
-          FieldLevelEncryptionId: ""
-          TrustedKeyGroups: []
-          AllowedMethods:
-          - "HEAD"
-          - "GET"
-          PathPattern: "/*.jpg"
-          CachedMethods:
-          - "HEAD"
-          - "GET"
-          SmoothStreaming: false
-          OriginRequestPolicyId:
-            Ref: "CloudFrontOriginRequestPolicy00216adef65c7f47e4b9895492eafa07d300yfFaF"
-          CachePolicyId:
-            Ref: "CloudFrontCachePolicy00658327eaf89d4faba63d7e88639e58f600COc7C"
-        - Compress: false
-          FunctionAssociations: []
-          LambdaFunctionAssociations: []
-          TargetOriginId: "genAIPilot"
-          ViewerProtocolPolicy: "allow-all"
-          GrpcConfig:
-            Enabled: false
-          TrustedSigners: []
-          FieldLevelEncryptionId: ""
-          TrustedKeyGroups: []
-          AllowedMethods:
-          - "HEAD"
-          - "GET"
-          PathPattern: "/*.jpeg"
-          CachedMethods:
-          - "HEAD"
-          - "GET"
-          SmoothStreaming: false
-          OriginRequestPolicyId:
-            Ref: "CloudFrontOriginRequestPolicy00216adef65c7f47e4b9895492eafa07d300yfFaF"
-          CachePolicyId:
-            Ref: "CloudFrontCachePolicy00658327eaf89d4faba63d7e88639e58f600COc7C"
-        - Compress: false
-          FunctionAssociations: []
-          LambdaFunctionAssociations: []
-          TargetOriginId: "genAIPilot"
-          ViewerProtocolPolicy: "allow-all"
-          GrpcConfig:
-            Enabled: false
-          TrustedSigners: []
-          FieldLevelEncryptionId: ""
-          TrustedKeyGroups: []
-          AllowedMethods:
-          - "HEAD"
-          - "GET"
-          PathPattern: "/*.gif"
-          CachedMethods:
-          - "HEAD"
-          - "GET"
-          SmoothStreaming: false
-          OriginRequestPolicyId:
-            Ref: "CloudFrontOriginRequestPolicy00216adef65c7f47e4b9895492eafa07d300yfFaF"
-          CachePolicyId:
-            Ref: "CloudFrontCachePolicy00658327eaf89d4faba63d7e88639e58f600COc7C"
-        - Compress: false
-          FunctionAssociations: []
-          LambdaFunctionAssociations: []
-          TargetOriginId: "genAIPilot"
-          ViewerProtocolPolicy: "allow-all"
-          GrpcConfig:
-            Enabled: false
-          TrustedSigners: []
-          FieldLevelEncryptionId: ""
-          TrustedKeyGroups: []
-          AllowedMethods:
-          - "HEAD"
-          - "GET"
-          PathPattern: "/*.css"
-          CachedMethods:
-          - "HEAD"
-          - "GET"
-          SmoothStreaming: false
-          OriginRequestPolicyId:
-            Ref: "CloudFrontOriginRequestPolicy00216adef65c7f47e4b9895492eafa07d300yfFaF"
-          CachePolicyId:
-            Ref: "CloudFrontCachePolicy00658327eaf89d4faba63d7e88639e58f600COc7C"
-        - Compress: false
-          FunctionAssociations: []
-          LambdaFunctionAssociations: []
-          TargetOriginId: "genAIPilot"
-          ViewerProtocolPolicy: "allow-all"
-          GrpcConfig:
-            Enabled: false
-          TrustedSigners: []
-          FieldLevelEncryptionId: ""
-          TrustedKeyGroups: []
-          AllowedMethods:
-          - "HEAD"
-          - "GET"
-          PathPattern: "/*.png"
-          CachedMethods:
-          - "HEAD"
-          - "GET"
-          SmoothStreaming: false
-          OriginRequestPolicyId:
-            Ref: "CloudFrontOriginRequestPolicy00216adef65c7f47e4b9895492eafa07d300yfFaF"
-          CachePolicyId:
-            Ref: "CloudFrontCachePolicy00658327eaf89d4faba63d7e88639e58f600COc7C"
-  ConfigConfigRule00securityhubeksclustersupportedversionb7ccd7d100UAOTK:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::Config::ConfigRule"
-    DeletionPolicy: "Retain"
-    Properties:
-      EvaluationModes:
-      - Mode: "DETECTIVE"
-      Description: "This control checks if an Amazon Elastic Kubernetes Service (EKS)\
-        \ cluster is running a supported Kubernetes version. This control fails if\
-        \ an EKS cluster is running an unsupported version (less than the parameter\
-        \ 'oldestVersionSupported')."
-      Scope: {}
-      Compliance: {}
-      ConfigRuleName: "securityhub-eks-cluster-supported-version-b7ccd7d1"
-      Source:
-        SourceIdentifier: "EKS_CLUSTER_SUPPORTED_VERSION"
-        Owner: "AWS"
-      InputParameters:
-        oldestVersionSupported: "1.29"
   EC2Instance00i0e19ff01674e306d500jlMib:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::EC2::Instance"
@@ -8256,70 +7690,6 @@ Resources:
         SourceIdentifier: "EC2_INSTANCE_MULTIPLE_ENI_CHECK"
         Owner: "AWS"
       InputParameters: {}
-  CloudFrontCachePolicy0083da9c7e98b44e11a16804f0df8e2c6500I5yDG:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::CachePolicy"
-    DeletionPolicy: "Retain"
-    Properties:
-      CachePolicyConfig:
-        Comment: "Policy for origins that return Cache-Control headers. Query strings\
-          \ are not included in the cache key."
-        MinTTL: 0
-        MaxTTL: 3.1536E7
-        ParametersInCacheKeyAndForwardedToOrigin:
-          QueryStringsConfig:
-            QueryStringBehavior: "none"
-          EnableAcceptEncodingBrotli: true
-          HeadersConfig:
-            HeaderBehavior: "whitelist"
-            Headers:
-            - "x-method-override"
-            - "origin"
-            - "host"
-            - "x-http-method"
-            - "x-http-method-override"
-          CookiesConfig:
-            CookieBehavior: "all"
-          EnableAcceptEncodingGzip: true
-        DefaultTTL: 0
-        Name: "UseOriginCacheControlHeaders"
-  EC2KeyPair00testtapo100OGyI1:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::EC2::KeyPair"
-    DeletionPolicy: "Retain"
-    Properties:
-      KeyName: "test-tapo-1"
-      KeyType: "rsa"
-      PublicKeyMaterial: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMPrwcFyYo/o7e/0BSYbukdEIoQxudRbe1vyWJ4Fi7HcIberAdXZA0JTqwRrqpyXw3xhzebfuRE5BM0kb+FqYfx8Grmg/71H6mNPALsjpbjmeG6HMmNSMRWMCCqfNBkigS5nk9vJ9hdloq3FDoBzrut53nnZv4mMichc0PbUhUhrykmSIC0dU2urG4zm5nGK9XOVDnH9SW6KgEcEwKxe5Ud5uW35+1SkukRZoxp4Tt2FCMvS8HD2116ZsTdl6gIBKv7rCfd9W2VyMIoBAl44gT9+gquQi6EzgSaQN/k4DV84TNO6jO1txKv89gg5PTAOd0a3pWdN5Ii5o34LDCFVzl\
-        \ test-tapo-1\n"
-      Tags: []
-  ApiGatewayStage00prodmvp100tl9xp:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::ApiGateway::Stage"
-    DeletionPolicy: "Retain"
-    Properties:
-      DeploymentId:
-        Fn::GetAtt:
-        - "ApiGatewayDeployment00byenf700v3Ccv"
-        - "DeploymentId"
-      DocumentationVersion: "2"
-      StageName: "prod-mvp1"
-      TracingEnabled: false
-      RestApiId:
-        Ref: "ApiGatewayRestApi005nwb46kira00y5IhC"
-      MethodSettings:
-      - CacheTtlInSeconds: 300
-        LoggingLevel: "INFO"
-        ResourcePath: "/*"
-        CacheDataEncrypted: false
-        DataTraceEnabled: false
-        ThrottlingBurstLimit: 5000
-        CachingEnabled: false
-        MetricsEnabled: false
-        HttpMethod: "*"
-        ThrottlingRateLimit: 10000
-      CacheClusterSize: "0.5"
-      CacheClusterEnabled: false
   ConfigConfigRule00securityhubwafregionalrulegroupnotempty6cbb933c005QpmJ:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::Config::ConfigRule"
@@ -8441,26 +7811,6 @@ Resources:
         SourceIdentifier: "GUARDDUTY_ENABLED_CENTRALIZED"
         Owner: "AWS"
       InputParameters: {}
-  CloudFrontCachePolicy004135ea2d6df844a39df34b5a84be39ad00GpCGQ:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::CachePolicy"
-    DeletionPolicy: "Retain"
-    Properties:
-      CachePolicyConfig:
-        Comment: "Policy with caching disabled"
-        MinTTL: 0
-        MaxTTL: 0
-        ParametersInCacheKeyAndForwardedToOrigin:
-          QueryStringsConfig:
-            QueryStringBehavior: "none"
-          EnableAcceptEncodingBrotli: false
-          HeadersConfig:
-            HeaderBehavior: "none"
-          CookiesConfig:
-            CookieBehavior: "none"
-          EnableAcceptEncodingGzip: false
-        DefaultTTL: 0
-        Name: "Managed-CachingDisabled"
   ConfigConfigRule00securityhubec2imdsv2checkd065099b00HVo7Z:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::Config::ConfigRule"
@@ -8513,43 +7863,6 @@ Resources:
         SourceIdentifier: "RDS_STORAGE_ENCRYPTED"
         Owner: "AWS"
       InputParameters: {}
-  CloudFrontOriginRequestPolicy0033f36d7ef39646d990e052428a34d9dc00SmkUK:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::CloudFront::OriginRequestPolicy"
-    DeletionPolicy: "Retain"
-    Properties:
-      OriginRequestPolicyConfig:
-        QueryStringsConfig:
-          QueryStringBehavior: "all"
-        Comment: "Policy to forward all parameters in viewer requests and all CloudFront\
-          \ headers as of June 2022"
-        HeadersConfig:
-          HeaderBehavior: "allViewerAndWhitelistCloudFront"
-          Headers:
-          - "CloudFront-Viewer-Time-Zone"
-          - "CloudFront-Viewer-Address"
-          - "CloudFront-Viewer-Country"
-          - "CloudFront-Is-IOS-Viewer"
-          - "CloudFront-Is-Tablet-Viewer"
-          - "CloudFront-Forwarded-Proto"
-          - "CloudFront-Viewer-Country-Name"
-          - "CloudFront-Is-Mobile-Viewer"
-          - "CloudFront-Is-SmartTV-Viewer"
-          - "CloudFront-Viewer-Country-Region"
-          - "CloudFront-Is-Android-Viewer"
-          - "CloudFront-Viewer-Country-Region-Name"
-          - "CloudFront-Viewer-City"
-          - "CloudFront-Viewer-Latitude"
-          - "CloudFront-Viewer-Longitude"
-          - "CloudFront-Viewer-Http-Version"
-          - "CloudFront-Viewer-Postal-Code"
-          - "CloudFront-Viewer-ASN"
-          - "CloudFront-Is-Desktop-Viewer"
-          - "CloudFront-Viewer-Metro-Code"
-          - "CloudFront-Viewer-TLS"
-        CookiesConfig:
-          CookieBehavior: "all"
-        Name: "Managed-AllViewerAndCloudFrontHeaders-2022-06"
   ConfigConfigRule00securityhubelasticachereplgrpencryptedatrest6ac4cfdd00mTCEB:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::Config::ConfigRule"
@@ -12625,26 +11938,6 @@ Resources:
       Tags:
       - Value: "tapo-test-1 [encrypted]"
         Key: "name"
-  EC2SecurityGroup00sg00b5af668cf24cf1f009wHrc:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::EC2::SecurityGroup"
-    DeletionPolicy: "Retain"
-    Properties:
-      GroupDescription: "allow whitelist from cloudfront"
-      GroupName: "alb-genai-pilot"
-      VpcId:
-        Ref: "EC2VPC00vpc02790342fee4ebf9f00YtCms"
-      SecurityGroupIngress:
-      - IpProtocol: "tcp"
-        Description: "Cloudfront whitelist"
-        FromPort: 443
-        ToPort: 443
-        SourcePrefixListId: "pl-31a34658"
-      SecurityGroupEgress:
-      - CidrIp: "0.0.0.0/0"
-        IpProtocol: "-1"
-        FromPort: -1
-        ToPort: -1
   EC2NetworkInterface00eni0be64425943c3dfed00kLtOI:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::EC2::NetworkInterface"
